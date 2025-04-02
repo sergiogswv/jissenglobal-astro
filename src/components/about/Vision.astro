@@ -1,0 +1,72 @@
+---
+const ImgVision = '/images/Mesa de trabajo 28.webp';
+const visionParagraphs = [
+		{
+			title: 'Profesionalismo',
+			text: 'Conocimiento experto en cada servicio.',
+		},
+		{
+			title: 'Eficiencia',
+			text: 'Reducción de costos y tiempo optimizados.',
+		},
+		{
+			title: 'Seriedad',
+			text: 'Compromiso en cada operación.',
+		},
+		{
+			title: 'Sinergía',
+			text: 'Crecimiento junto a nuestros clientes y socios.',
+		},
+		{
+			title: 'Confiabilidad',
+			text: 'Seguridad y transparencia en cada envio.',
+		},
+	];
+---
+
+<section class="py-12 px-2 md:py-20 md:px-12 bg-gray-50">
+  <div class="w-full mx-auto md:flex items-center md:gap-16">
+    <div
+      class="w-full md:w-1/2"
+    >
+      <div class="flex items-center md:gap-4 mb-2">
+        <h2 class="text-4xl md:text-7xl md:mb-3">Nuestra visión</h2>
+      </div>
+      <p class="text-xl md:text-3xl text-gray-700 mb-4 md:mb-12">
+        Ser{' '}
+        <span class="color-secondary font-bold">
+          agente de carga internacional líder,
+        </span>{' '}
+        ser reconocido por nuestra{' '}
+        <span class="color-secondary font-bold">
+          excelencia operativa, enfoque en el cliente y capacidad de
+          adaptación
+        </span>{' '}
+        a los cambios del entorno global.
+      </p>
+      <h3 class="text-3xl md:text-6xl mb-6 color-secondary">Nuestros valores</h3>
+      <ul class="mt-4 space-y-6">
+        {visionParagraphs.map((item) => (
+          <li class="flex items-center gap-4">
+            <p class="text-xl md:text-3xl font-bold color-secondary text-justify">
+              <span class="text-yellow-400 text-4xl mr-2">•</span>
+              {item.title}:{' '}
+              <span class="text-lg md:text-2xl font-light text-gray-700">
+                {item.text}
+              </span>
+            </p>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div
+      class="w-1/2"
+    >
+      <img
+        src={ImgVision}
+        alt="Nuestra Historia"
+        class="rounded-2xl shadow-lg md:block hidden"
+      />
+    </div>
+  </div>
+</section>

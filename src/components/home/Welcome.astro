@@ -1,0 +1,54 @@
+---
+const slides = [
+	{
+		image: '/images/banner_principal_uno.webp',
+		textImage: '/titles/text_uno.png',
+	},
+	{
+		image: '/images/banner_principal_dos.webp',
+		textImage: '/titles/text_dos.png',
+	},
+];
+const LogoPrincipal = '/images/logo/logotipo_blanco.png';
+---
+
+<style>
+	@keyframes slide {
+		0%,
+		45% {
+			transform: translateX(0);
+		} /* Primera imagen */
+		50%,
+		95% {
+			transform: translateX(-100%);
+		} /* Segunda imagen */
+		100% {
+			transform: translateX(0);
+		} /* Vuelve a la primera */
+	}
+</style>
+
+<div class="relative w-full max-h-screen mx-auto overflow-hidden">
+	<img
+		src={LogoPrincipal}
+		alt="Logo empresa en blanco"
+		class="absolute inset-0 w-2/12 md:w-1/8 left-10 mt-6 h-auto object-cover transition-opacity duration-1000 opacity-100 z-10"
+	/>
+	<div class="flex w-full animate-[slide_10s_infinite_ease-in-out]">
+		{
+			slides.map((slide, index) => (
+				<div class="w-full flex-shrink-0 flex flex-col items-center gap-4 relative">
+					<img src={slide.image} alt={`Imagen ${index + 1}`} class="w-full" />
+					<img
+						src={slide.textImage}
+						alt={`Texto ${index + 1}`}
+						class={`${index % 2 === 0 ? 'left-10 w-1/4 md:w-2/5' : 'right-0 w-2/4'} h-auto absolute z-10 top-2/6 md:top-2/6`}
+					/>
+					<a href="/contact" class="absolute color-button text-white text-xs md:text-4xl px-1 md:px-8 py-1 md:py-3 rounded-lg bottom-1/5 left-10 hover:cursor-pointer z-40 h-8 md:h-20">
+						Contáctanos
+					</a>
+				</div>
+			))
+		}
+	</div>
+</div>

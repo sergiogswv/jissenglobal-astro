@@ -1,0 +1,53 @@
+---
+const operations = [
+	{
+		icon: '/icons/operations.png',
+		text: 'Operaciones',
+		description: 'Seguimiento de envios y soporte logístico.',
+		emailIcon: '/icons/email.png',
+		email: 'operativo@jissenglobal.com',
+	},
+	{
+		icon: '/icons/sells.png',
+		text: 'Ventas',
+		description: 'Cotizaciones y asesoria comercial.',
+		emailIcon: '/icons/email.png',
+		email: 'ventas@jissenglobal.com',
+	},
+	{
+		icon: '/icons/bills.png',
+		text: 'Facturación',
+		description: 'Consultas sobre pagos y documentos.',
+		emailIcon: '/icons/email.png',
+		email: 'facturacion@jissenglobal.com',
+	},
+];
+---
+
+<section class="text-center mb-12">
+	<h1 class="text-6xl font-thin text-blue-600 mt-16">
+		¿Cómo podemos ayudarte?
+	</h1>
+
+	<div class="grid md:grid-cols-3 gap-8 mb-12">
+		{
+			operations.map((item, index) => (
+				<div class="bg-white p-6 rounded-lg shadow-md text-center mt-4">
+					<img src={item.icon} alt={item.text} class="w-[100px] md:w-[200px] mx-auto mb-4" />
+					<h3 class="text-6xl font-semibold mb-4">{item.text}</h3>
+					<p class="text-3xl w-8/12 mx-auto text-center text-gray-400">
+						{item.description}
+					</p>
+					<img
+						src={item.emailIcon}
+						alt={item.text}
+						class="w-20 mt-8 mx-auto mb-4"
+					/>
+					<p class="text-xl md:text-3xl w-8/12 mx-auto text-center text-gray-400">
+						{item.email.toLowerCase()}
+					</p>
+				</div>
+			))
+		}
+	</div>
+</section>

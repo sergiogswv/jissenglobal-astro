@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'principal-font';
+  src: url('../src/assets/fonts/Wavehaus-66Book.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --font-display: 'principal-font';
+  --color-primary: #fccd00;
+  --color-secondary: #204bab;
+  --background-principal: #204bab;
+}
+
+html {
+  font-family: var(--font-display);
+}
+
+@layer {
+  .principal-font {
+    font-family: var(--font-display);
+  }
+  .color-primary {
+    color: var(--color-primary);
+  }
+  .color-secondary {
+    color: var(--color-secondary);
+  }
+  .color-button {
+    background-color: var(--color-secondary);
+  }
+  .background-principal {
+    background-color: var(--background-principal);
+  }
+}

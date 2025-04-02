@@ -1,0 +1,59 @@
+---
+const FooterBanner = '/images/Mesa de trabajo 31.webp';
+const footerParagraphs = [
+	{
+		text: 'Rutas comerciales estratégicas para una conectividad global efectiva.',
+	},
+	{
+		text: 'Tiempos de entrega garantizados, evitando retrasos y costos adicionales.',
+	},
+	{
+		text: 'Seguimiento en tiempo real y visibilidad total de la carga.',
+	},
+	{
+		text: 'Optimización logística para reducir costos y maximizar eficiencia.',
+	},
+	{
+		text: 'Equipo experto listo para diseñar soluciones personalizadas.',
+	},
+];
+---
+
+<section
+	class="grid md:flex background-principal max-w-full md:mx-auto md:max-h-[900px] md:px-24"
+>
+	<div class="w-full md:w-7/12">
+		<img
+			src={FooterBanner}
+			alt="Imagen de banner principal"
+			class="w-full h-10/12 md:h-full object-cover -translate-y-1 -mb-12"
+		/>
+	</div>
+	<div
+		class="w-full md:w-5/12 text-white px-4 md:px-16 flex flex-col justify-center"
+	>
+		<h5 class="text-xl md:text-5xl font-bold mb-2 md:mb-10">
+			Más que un proveedor,{' '}
+			<span class="text-yellow-400">somos tu socio en</span> logística internacional.
+		</h5>
+		<ul class="mt-1 md:mt-4 space-y-2 md:space-y-6">
+			{
+				footerParagraphs.map((item) => (
+					<li class="flex items-center md:gap-4">
+						<span class="text-yellow-400 text-2xl md:text-6xl">•</span>
+						<span class="text-lg md:text-2xl">{item.text}</span>
+					</li>
+				))
+			}
+		</ul>
+		<p class="mt-10 text-xl md:text-2xl">
+			Conéctate con nosotros y llevemos tu logística al siguiente nivel.
+		</p>
+		<a
+			href="/contact"
+			class="mt-2 mb-2 md:mt-4 bg-gray-100 text-blue-900 text-xl md:text-2xl w-[100px] md:w-[150px] py-1 md:py-2 md:px-4 text-center rounded-lg hover:bg-yellow-300"
+		>
+			Hablemos
+		</a>
+	</div>
+</section>

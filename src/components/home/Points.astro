@@ -1,0 +1,34 @@
+---
+const introSection = [
+  { icon: '/icons/handPuzzle.png', description: 'Te ofrecemos soluciones eficientes, seguras y adaptadas a las necesidades de tu negocio.' },
+  { icon: '/icons/objective.png', description: 'Nuestra misión es conectar negocios con soluciones eficientes, asegurando que cada transacción fluya con confianza y precisión.' },
+  // Agrega más objetos según sea necesario
+];
+---
+
+<section class="py-20 px-12 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="md:text-4xl text-3xl text-center mb-16 font-bold text-gray-800">
+      <span class="color-secondary">Jissen Global </span>
+      es tu socio estratégico en importación y comercio internacional
+    </h2>
+    <div class="grid md:grid-cols-2 md:gap-12">
+      {introSection.map((service, index) => (
+        <div
+          class="group relative md:p-3 flex w-full h-[300px] opacity-100 translate-y-12
+            transition-all duration-700 ease-out group-hover:opacity-100 group-hover:translate-y-0"
+          style={{ transitionDelay: `${index * 0.2}s` }}
+        >
+          <img
+            src={service.icon}
+            alt={service.description}
+            class="w-5/12 h-8/12 object-contain mr-5 mt-4"
+          />
+          <div class="relative z-10 w-full h-full flex flex-col justify-start mt-2">
+            <p class="text-gray-500 text-xl md:text-3xl">{service.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

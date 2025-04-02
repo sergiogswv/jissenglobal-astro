@@ -1,0 +1,36 @@
+---
+const sectorImages = [
+	{ name: 'Manufactura', image: '/images/Mesa de trabajo 32A.webp' },
+	{ name: 'AutoMobility', image: '/images/Mesa de trabajo 33A.webp' },
+	{ name: 'Energía', image: '/images/Mesa de trabajo 34A.webp' },
+	{ name: 'Perecederos', image: '/images/Mesa de trabajo 35A.webp' },
+];
+---
+
+<section class="py-16 bg-gray-100 w-full grid">
+	<h4 class="text-xl md:text-4xl text-center mb-12 text-gray-600">
+		Diseñamos estrategias a la medida para sectores clave
+	</h4>
+	<div class="grid md:grid-cols-4">
+		{
+			sectorImages.map((sector) => (
+				<div class="relative overflow-hidden group">
+					<img
+						src={sector.image}
+						alt={sector.name}
+						class="w-full h-64 object-cover transition-all duration-300 group-hover:brightness-75"
+					/>
+					<div class="absolute inset-0 flex items-center justify-center opacity-100 transition-opacity duration-300 hover:bg-gray-900/80 hover:opacity-70 hover:text-[#fccd00] hover:text-opacity-100">
+						<span class="text-4xl font-bold">{sector.name}</span>
+					</div>
+				</div>
+			))
+		}
+	</div>
+	<a
+    href="/about"
+    class="color-button text-white text-3xl md:w-3/12 mx-auto px-8 py-3 mt-10 rounded-lg hover:cursor-pointer text-center hover:scale-y-[1.05] transition-transform duration-300 hover:scale-x-[1.05]"
+  >
+    Explora nuestros servicios
+  </a>
+</section>

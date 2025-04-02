@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://jissenglobal.com/sitemap.xml
+Robots: https://jissenglobal.com/robots.txt

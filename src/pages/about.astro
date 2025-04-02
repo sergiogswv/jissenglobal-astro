@@ -1,0 +1,23 @@
+---
+import Description from '../components/about/Description.astro';
+import Mision from '../components/about/Mision.astro';
+import NextLevel from '../components/about/NextLevel.astro';
+import Principal from '../components/about/Principal.astro';
+import Vision from '../components/about/Vision.astro';
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Sobre nosotros';
+---
+
+<Layout
+	title={title}
+	description="Jissen Global es tu socio estratégico en importación y comercio internacional. Conoce más sobre nosotros"
+>
+	<Principal />
+	<Description />
+
+	<Mision />
+	<Vision />
+
+	<NextLevel />
+</Layout>

@@ -1,0 +1,47 @@
+---
+const servicesSections = [
+	{
+		icon: '/icons/Mesa de trabajo 13.png',
+		id: 1,
+		title:
+			'<p class="text-4xl text-center text-white">Conectar a México y al mundo a través de la logística <span class="color-primary">soluciones logísticas innovadoras y eficientes.</span></p>',
+	},
+	{
+		icon: '/icons/Mesa de trabajo 14.png',
+		id: 2,
+		title:
+			'<p class="text-4xl text-center text-white">Asegurar entregas <span class="color-primary">puntuales y personalizadas.</span></p>',
+	},
+	{
+		icon: '/icons/Mesa de trabajo 15.png',
+		id: 3,
+		title:
+			'<p class="text-4xl text-center text-white"><span class="color-primary">Fortalecer las cadenas de suministro</span> de nuestros clientes.</p>',
+	},
+];
+---
+
+<section
+	class="py-12 px-4 md:py-20 md:px-12 background-principal grid md:grid-cols-3 gap-8"
+>
+	<h3 class="text-6xl text-center mb-5 font-bold color-primary md:col-span-3">
+		Nuestra Misión
+	</h3>
+	{
+		servicesSections.map((service, index) => (
+			<div
+				class={`
+              group relative md:p-8 rounded-2xl
+              transform transition-all duration-300 
+              grid place-items-center
+            `}
+			>
+				<img src={service.icon} class="w-[200px] object-contain my-4" />
+				<div
+					class="relative z-10"
+					set:html={service.title}
+				/>
+			</div>
+		))
+	}
+</section>

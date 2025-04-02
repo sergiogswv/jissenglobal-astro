@@ -1,0 +1,36 @@
+---
+const BannerPrincipal = '/images/Mesa de trabajo 25.webp';
+const LogoPrincipal = '/images/logo/logotipo_blanco.png';
+const IconPrincipal = '/icons/Mesa de trabajo 22.png';
+const text = '/titles/about_text.png';
+---
+
+<section class="relative w-full max-h-screen mx-auto overflow-hidden">
+	<a href="/">
+		<img
+			src={LogoPrincipal}
+			alt="Logo empresa en blanco"
+			class="absolute inset-0 w-2/12 md:w-2/8 left-10 mt-6 object-cover transition-opacity duration-1000 opacity-100 z-10"
+		/>
+	</a>
+	<div class="flex w-full relative">
+		<img
+			src={BannerPrincipal}
+			alt={'Imagen de banner principal para seccion de nosotros'}
+			class="w-full"
+		/>
+
+		<div class="absolute inset-0">
+			<img
+				src={IconPrincipal}
+				alt="Construimos Conexiones"
+				class="w-1/5 md:w-2/10 absolute z-30 right-5 md:right-10 top-2/6 md:top-2/6"
+			/>
+			<img
+				src={text}
+				alt="Construimos Conexiones"
+				class="w-2/4 md:w-3/4 absolute z-30 right-0 top-4/6 md:top-4/6"
+			/>
+		</div>
+	</div>
+</section>
