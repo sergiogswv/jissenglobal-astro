@@ -29,13 +29,13 @@ const operations = [
 		¿Cómo podemos ayudarte?
 	</h1>
 
-	<div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12 w-full">
+	<div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 mb-12 w-full">
 		{
 			operations.map((item) => (
-				<div class="bg-white p-6 rounded-lg shadow-md text-center mt-4 last:col-span-2">
+				<div class="bg-white p-6 rounded-lg shadow-md text-center mt-4 md:last:col-span-3 lg:last:col-span-1">
 					<img src={item.icon} alt={item.text} class="w-[100px] md:w-[200px] mx-auto mb-4" />
 					<h3 class="text-4xl sm:text-5xl md:text-5xl xl:text-6xl font-semibold mb-4">{item.text}</h3>
-					<p class="text-xl md:text-2xl xl:text-3xl w-8/12 mx-auto text-center text-gray-400">
+					<p class="text-xl lg:text-2xl xl:text-3xl w-8/12 mx-auto text-center text-gray-400">
 						{item.description}
 					</p>
 					<img
@@ -43,7 +43,7 @@ const operations = [
 						alt={item.text}
 						class="w-20 mt-8 mx-auto mb-4"
 					/>
-					<p class="text-lg md:text-lg xl:text-3xl w-8/12 mx-auto text-center text-gray-400">
+					<p class="text-sm xl:text-2xl w-full mx-auto text-center text-gray-400">
 						{item.email.toLowerCase()}
 					</p>
 				</div>
