@@ -5,19 +5,19 @@
 </h3>
 <form
 	id="contact-form"
-	class="max-w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-4"
+	class="max-w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 md:gap-4 relative"
 >
 	<div class="relative z-0 w-full mb-5 group col-span-2 md:col-span-1">
 		<input
 			type="text"
-			name="floating_first_name"
-			id="floating_first_name"
+			name="name"
+			id="name"
 			class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none peer"
 			placeholder=" "
 			required
 		/>
 		<label
-			for="floating_first_name"
+			for="name"
 			class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
 		>
 			Nombre completo
@@ -26,14 +26,14 @@
 	<div class="relative z-0 w-full mb-5 group col-span-2 md:col-span-1">
 		<input
 			type="email"
-			name="floating_email"
-			id="floating_email"
+			name="email"
+			id="email"
 			class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none peer"
 			placeholder=" "
 			required
 		/>
 		<label
-			for="floating_email"
+			for="email"
 			class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
 		>
 			Email
@@ -42,15 +42,14 @@
 	<div class="relative z-0 w-full mb-5 group col-span-2 md:col-span-1">
 		<input
 			type="tel"
-			pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-			name="floating_phone"
-			id="floating_phone"
+			name="phone"
+			id="phone"
 			class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none peer"
 			placeholder=" "
 			required
 		/>
 		<label
-			for="floating_phone"
+			for="phone"
 			class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
 		>
 			Télefono
@@ -59,13 +58,14 @@
 
 	<div class="relative z-0 w-full mb-5 group col-span-2 md:col-span-1">
 		<label
-			for="countries"
+			for="options"
 			class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
 		>
 			Select your country
 		</label>
 		<select
-			id="countries"
+			id="options"
+			name="options"
 			class="bg-gray-50 text-gray-900 text-sm rounded-lg block w-full p-2.5 -translate-y-5"
 		>
 			<option selected disabled> --Selecciona una opción-- </option>
@@ -83,6 +83,7 @@
 			<textarea
 				id="message"
 				rows={4}
+				name="message"
 				class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
 			></textarea>
 		</div>
@@ -92,25 +93,34 @@
 		>
 			Enviar mensaje
 		</button>
+		<div id="mensajeEstado" class="p-4 rounded mb-4 absolute bottom-0">
+			
+		</div>
 	</div>
 </form>
 
-<script>
-	document
-		.getElementById('contact-form')
-		?.addEventListener('submit', async (event) => {
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		const formulario = document.getElementById('contact-form');
+		const mensajeEstado = document.getElementById('mensajeEstado');
+		formulario.addEventListener('submit', async (event) => {
 			event.preventDefault();
+			mensajeEstado.textContent = 'Enviando comentarios...';
 
-			const form = event.target as HTMLFormElement;
-			const formData = new FormData(form);
-      console.log({ formData });
-			const response = await fetch('/api/contact', {
-				method: 'POST',
-				body: formData,
-			});
-
-			const result = await response.json();
-			console.log({ result });
+			const formData = new FormData(formulario);
+			// Realizar la petición a nuestro endpoint
+			try {
+				const response = await fetch('/api/contact', {
+					method: 'POST',
+					body: formData,
+				});
+				const result = await response.json();
+				mensajeEstado.textContent = '✅ ' + result.message;
+			} catch (error) {
+				console.error('Error en fetch:', error);
+        mensajeEstado.textContent = '❌ Error: ' + error.message;
+			}
 			// document.getElementById("response-message")?.textContent = result.message;
 		});
+	});
 </script>
