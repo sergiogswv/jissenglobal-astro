@@ -38,11 +38,11 @@ const LogoPrincipal = '/images/logo/logotipo_blanco.png';
 		{
 			slides.map((slide, index) => (
 				<div class="w-full flex-shrink-0 flex flex-col items-center gap-4 relative">
-					<img src={slide.image} alt={`Imagen ${index + 1}`} class="w-full" />
+					<img src={slide.image} alt={`Imagen ${index + 1}`} class="w-full h-[500px] object-cover md:h-auto" />
 					<img
 						src={slide.textImage}
 						alt={`Texto ${index + 1}`}
-						class={`${index % 2 === 0 ? 'left-10 w-1/4 md:w-2/5' : 'right-0 w-2/4'} h-auto absolute z-10 top-2/6 md:top-2/6`}
+						class={`${index % 2 === 0 ? 'left-10 w-3/4 sm:w-2/5 md:w-2/5' : 'right-0 w-11/12 md:w-2/4'} h-[200px] sm:h-auto md:h-auto absolute z-10 top-2/6 md:top-2/6`}
 					/>
 					<a href="/contact" class="absolute color-button my-auto text-white text-xs md:text-4xl px-2 md:px-8 py-2 md:py-4 rounded-lg bottom-5 left-10 hover:cursor-pointer z-40 h-8 md:h-20">
 						Contáctanos
