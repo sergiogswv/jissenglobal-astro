@@ -3,6 +3,11 @@ import '../styles/global.css';
 const { title, description } = Astro.props;
 const image = '/images/logo/logotipo_original.png';
 const url = Astro.url;
+const siteUrl = 'https://www.jissenglobal.com'
+const currentPath = Astro.url.pathname
+console.log('currentPath', currentPath)
+const canonicalUrl = `${siteUrl}${currentPath === '/' ? '' : currentPath}`
+console.log('canonicalUrl', canonicalUrl)
 ---
 
 <!doctype html>
@@ -14,6 +19,8 @@ const url = Astro.url;
 		<meta name="description" content={description} />
 		<meta name="robots" content="index, follow" />
 		<title>{title}</title>
+
+		<link rel="canonical" href={canonicalUrl} />
 
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
