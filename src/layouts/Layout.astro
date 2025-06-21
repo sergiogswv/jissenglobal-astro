@@ -3,11 +3,9 @@ import '../styles/global.css';
 const { title, description } = Astro.props;
 const image = '/images/logo/logotipo_original.png';
 const url = Astro.url;
-const siteUrl = 'https://www.jissenglobal.com'
+const siteUrl = 'https://jissenglobal.com'
 const currentPath = Astro.url.pathname
-console.log('currentPath', currentPath)
 const canonicalUrl = `${siteUrl}${currentPath === '/' ? '' : currentPath}`
-console.log('canonicalUrl', canonicalUrl)
 ---
 
 <!doctype html>
@@ -21,6 +19,10 @@ console.log('canonicalUrl', canonicalUrl)
 		<title>{title}</title>
 
 		<link rel="canonical" href={canonicalUrl} />
+
+		<meta name="generator" content={Astro.generator} />
+		<meta name="author" content="Jissen Global" />
+		<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" title="Jissen Global" />
 
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
@@ -36,12 +38,19 @@ console.log('canonicalUrl', canonicalUrl)
 
 		<!-- Favicon -->
 		<link rel="icon" type="image/png" href="/images/logo/logotipo.png" />
+		<link rel="preload" href="/images/logo/logotipo_original.png" as="image" />
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
-				"@type": "WebSite",
+				"@type": "Organization",
 				"name": "Jissen Global",
-				"url": "https://jissenglobal.com"
+				"url": "https://jissenglobal.com",
+				"logo": "https://jissenglobal.com/images/logo/logotipo_original.png",
+				"description": "Soluciones eficientes de logística y transporte",
+				"address": {
+					"@type": "PostalAddress",
+					"addressCountry": "MX"
+				}
 			}
 		</script>
 	</head>
