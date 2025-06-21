@@ -1,12 +1,13 @@
 {
   "redirects": [
     {
-      "source": "http://jissenglobal.com/(.*)",
-      "destination": "https://www.jissenglobal.com/$1",
-      "permanent": true
-    },
-    {
-      "source": "https://jissenglobal.com/(.*)",
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "jissenglobal.com"
+        }
+      ],
       "destination": "https://www.jissenglobal.com/$1",
       "permanent": true
     }
