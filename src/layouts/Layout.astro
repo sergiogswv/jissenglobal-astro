@@ -3,7 +3,7 @@ import '../styles/global.css';
 const { title, description } = Astro.props;
 const image = '/images/logo/logotipo_original.png';
 const url = Astro.url;
-const siteUrl = 'https://jissenglobal.com'
+const siteUrl = 'https://www.jissenglobal.com'
 const currentPath = Astro.url.pathname
 const canonicalUrl = `${siteUrl}${currentPath === '/' ? '' : currentPath}`
 ---
@@ -44,8 +44,8 @@ const canonicalUrl = `${siteUrl}${currentPath === '/' ? '' : currentPath}`
 				"@context": "https://schema.org",
 				"@type": "Organization",
 				"name": "Jissen Global",
-				"url": "https://jissenglobal.com",
-				"logo": "https://jissenglobal.com/images/logo/logotipo_original.png",
+				"url": "https://www.jissenglobal.com",
+				"logo": "https://www.jissenglobal.com/images/logo/logotipo_original.png",
 				"description": "Soluciones eficientes de logística y transporte",
 				"address": {
 					"@type": "PostalAddress",
