@@ -1,0 +1,171 @@
+---
+const faqCategories = [
+	{
+		category: 'Servicios y Logística',
+		questions: [
+			{
+				question: '¿Qué tipos de transporte ofrecen?',
+				answer: 'En Jissen Global manejamos transporte aéreo, marítimo, terrestre y carga de proyecto, adaptándonos a las necesidades de cada cliente.',
+			},
+			{
+				question: '¿Cuáles son los tiempos de entrega?',
+				answer: 'Dependen del tipo de servicio y la ruta. Ofrecemos opciones Saver, Standard y Premium en transporte aéreo, así como envíos terrestres y marítimos con tiempos optimizados.',
+			},
+			{
+				question: '¿Pueden manejar cargas urgentes?',
+				answer: 'Sí, contamos con servicios exprés y prioritarios para garantizar entregas rápidas en envíos aéreos y terrestres.',
+			},
+			{
+				question: '¿Tienen cobertura internacional?',
+				answer: 'Sí, contamos con rutas comerciales estratégicas que conectan México con diversos puntos del mundo.',
+			},
+		],
+	},
+	{
+		category: 'Documentación y Regulaciones',
+		questions: [
+			{
+				question: '¿Qué documentos necesito para importar o exportar?',
+				answer: 'Depende del tipo de mercancía y país de destino. Generalmente se requieren: Factura comercial, Lista de empaque, Documento de transporte (BL, AWB o carta porte), y Documentos de cumplimiento normativo. Si tienes dudas, nuestro equipo puede asesorarte.',
+			},
+			{
+				question: '¿Manejan trámites aduanales?',
+				answer: 'Sí, ofrecemos asesoría y gestión aduanal para agilizar el despacho de mercancía y evitar retrasos.',
+			},
+			{
+				question: '¿Jissen Global se encarga del seguro de la mercancía?',
+				answer: 'Podemos gestionar seguro de carga para proteger tu mercancía ante imprevistos durante el transporte.',
+			},
+		],
+	},
+	{
+		category: 'Costos y Pagos',
+		questions: [
+			{
+				question: '¿Cómo puedo cotizar un envío?',
+				answer: 'Puedes enviarnos los detalles de tu carga a través de nuestro formulario de contacto o escribirnos a ventas@jissenglobal.com.',
+			},
+			{
+				question: '¿Cuáles son las formas de pago?',
+				answer: 'Aceptamos transferencias bancarias y pagos electrónicos. Para clientes con contrato, podemos ofrecer condiciones de pago flexibles.',
+			},
+		],
+	},
+    {
+        category: 'Soporte y Seguimiento',
+        questions: [
+            {
+                question: '¿Cómo puedo rastrear mi envío?',
+                answer: 'Brindamos seguimiento en tiempo real y actualizaciones constantes. Puedes contactarnos directamente para conocer el estatus de tu carga.',
+            },
+            {
+                question: '¿Cómo me comunico con atención al cliente?',
+                answer: 'Puedes escribirnos a:',
+                emails: [
+                    { label: 'Operaciones', email: 'operativo@jissenglobal.com' },
+                    { label: 'Ventas', email: 'ventas@jissenglobal.com' },
+                    { label: 'Facturación', email: 'facturacion@jissenglobal.com' }
+                ]
+            },
+        ],
+    }
+];
+---
+
+<section class="py-12 md:py-20 bg-gray-50">
+	<div class="max-w-7xl mx-auto px-4">
+		{
+			faqCategories.map((category, catIndex) => (
+				<div class="mb-12 md:mb-16">
+					<h2 class="text-3xl md:text-5xl font-bold color-secondary text-left mb-8 md:mb-12">
+						{category.category}
+					</h2>
+					<div class="space-y-4">
+						{category.questions.map((item, qIndex) => {
+							const faqId = `faq-${catIndex}-${qIndex}`;
+							return (
+								<div class="faq-item overflow-hidden">
+									<button
+										class="faq-question w-full flex items-start gap-3 md:gap-4 p-4 md:p-6 cursor-pointer hover:bg-gray-50 transition-colors duration-200 text-left"
+										data-faq-id={faqId}
+										aria-expanded="false"
+									>
+										<span class="faq-bullet bg-blue-400 rounded-full w-3 h-3 md:w-4 md:h-4 mt-1.5 md:mt-2 flex-shrink-0 transition-colors duration-200"></span>
+										<span class="faq-text text-lg md:text-2xl text-gray-600 font-medium transition-colors duration-200 flex-1">
+											{item.question}
+										</span>
+									</button>
+									<div
+										id={faqId}
+										class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+									>
+										<div class="px-4 md:px-6 pb-4 md:pb-6 pl-10 md:pl-14">
+											<p class="text-base md:text-xl text-gray-700 leading-relaxed">
+												{item.answer}
+											</p>
+											{item.emails && (
+												<ul class="mt-4 space-y-2">
+													{item.emails.map((contact) => (
+														<li class="flex items-center gap-2 text-base md:text-xl text-gray-700">
+															<span>📧</span>
+															<span class="font-semibold">{contact.label}:</span>
+															<a href={`mailto:${contact.email}`} class="text-blue-600 hover:text-blue-800 underline">
+																{contact.email}
+															</a>
+														</li>
+													))}
+												</ul>
+											)}
+										</div>
+									</div>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const faqQuestions = document.querySelectorAll('.faq-question');
+
+		faqQuestions.forEach((question) => {
+			question.addEventListener('click', () => {
+				const faqId = question.getAttribute('data-faq-id');
+				const answer = document.getElementById(faqId);
+				const bullet = question.querySelector('.faq-bullet');
+				const text = question.querySelector('.faq-text');
+				const isOpen = question.getAttribute('aria-expanded') === 'true';
+
+				if (!answer || !bullet || !text) return;
+
+				if (isOpen) {
+					// Cerrar
+					answer.style.maxHeight = '0';
+					question.setAttribute('aria-expanded', 'false');
+					bullet.classList.remove('bg-black');
+					bullet.classList.add('bg-blue-400');
+					text.classList.remove('text-black');
+					text.classList.add('text-gray-600');
+				} else {
+					// Abrir
+					answer.style.maxHeight = answer.scrollHeight + 'px';
+					question.setAttribute('aria-expanded', 'true');
+					bullet.classList.remove('bg-blue-400');
+					bullet.classList.add('bg-black');
+					text.classList.remove('text-gray-600');
+					text.classList.add('text-black');
+				}
+			});
+		});
+	});
+</script>
+
+<style>
+	.faq-answer {
+		transition: max-height 0.3s ease-in-out;
+	}
+</style>

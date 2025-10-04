@@ -1,0 +1,104 @@
+---
+const sectors = [
+	{
+		image: '/images/services/aero_transport.webp',
+		title: 'Transporte Aéreo',
+		subtitle: 'Rapidez y seguridad para cargas urgentes.',
+		keyPoints: [
+			'Saver: Opción económica con tiempos de entrega eficientes.',
+			'Standard: Balance perfecto entre costo y rapidez.',
+			'Premium: Entrega prioritaria con el menor tiempo de tránsito.'
+		],
+		footerDescription: 'Envíos urgentes, electrónicos, farmacéuticos y bienes de alto valor.',
+	},
+	{
+		image: '/images/services/sea_transport.webp',
+		title: 'Transporte Marítimo',
+		subtitle: 'La solución más rentable para grandes volúmenes.',
+		keyPoints: [
+			'FCL (Full Container Load): Contenedor exclusivo para tu carga.',
+			'LCL (Less than Container Load): Opción flexible para carga consolidada.',
+			'Sobredimensionados: Transporte especializado para maquinaria y estructuras grandes.'
+		],
+		footerDescription: 'Materias primas, productos industriales y carga pesada.',
+	},
+	{
+		image: '/images/services/transport.webp',
+		title: 'Transporte Terrestre',
+		subtitle: 'Cobertura nacional e internacional con máxima flexibilidad.',
+		keyPoints: [
+			'FTL (Full Truck Load): Camión exclusivo para maximizar tiempos de entrega.',
+			'LTL (Less than Truck Load): Carga compartida para reducir costos.',
+			'FTB (Full Trailer Barge): Transporte multimodal optimizado.',
+			'Sobredimensionados: Soluciones para equipos y mercancías de gran tamaño.'
+		],
+		footerDescription: 'Distribución regional, abastecimiento de fábricas y comercio intermodal.',
+	},
+	{
+		image: '/images/services/project.webp',
+		title: 'Carga Proyecto',
+		subtitle: 'Soluciones especializadas para envíos complejos y de gran escala.',
+		keyPoints: [
+			'Roro (Roll-On/Roll-Off): Ideal para vehículos, maquinaria y equipos rodantes.',
+			'Break Bulk: Transporte de cargas pesadas y de gran volumen.',
+			'Multimodal: Combinamos transporte marítimo, aéreo y terrestre para optimizar costos y tiempos.',
+			'Transporte Terrestre Especializado: Logística a medida para proyectos únicos.'
+		],
+		footerDescription: 'Industria energética, construcción, minería y manufactura de gran escala.',
+	},
+];
+---
+
+<section class="w-full">
+	{
+		sectors.map((sector, index) => {
+			const isBlue = index % 2 === 0;
+			const bgColor = isBlue ? 'background-principal' : 'bg-white';
+			const titleColor = isBlue ? 'text-yellow-400' : 'color-secondary';
+			const textColor = isBlue ? 'text-white' : 'text-black';
+			const bulletColor = isBlue ? 'bg-yellow-400' : 'bg-blue-900';
+			const imageOnLeft = isBlue;
+
+			return (
+				<div class={`${bgColor} py-12 md:py-16`}>
+					<div class="max-w-7xl mx-auto px-4">
+						<div class={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${imageOnLeft ? '' : 'md:flex-row-reverse'}`}>
+							{/* Imagen */}
+							<div class={`${imageOnLeft ? 'md:order-1' : 'md:order-2'}`}>
+								<img
+									src={sector.image}
+									alt={sector.title}
+									class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+								/>
+							</div>
+
+							{/* Contenido */}
+							<div class={`${imageOnLeft ? 'md:order-2' : 'md:order-1'}`}>
+								<h3 class={`text-3xl md:text-5xl font-bold mb-2 ${titleColor}`}>
+									{sector.title}
+								</h3>
+								<h4 class={`text-xl md:text-2xl font-bold mb-4 ${textColor}`}>
+									{sector.subtitle}
+								</h4>
+								<ul class="space-y-4">
+									{sector.keyPoints.map((point) => (
+										<li class="flex items-start gap-3">
+											<span class={`${bulletColor} rounded-full w-3 h-3 md:w-4 md:h-4 mt-1.5 flex-shrink-0`}></span>
+											<span class={`text-lg md:text-xl ${textColor}`}>
+												{point}
+											</span>
+										</li>
+									))}
+								</ul>
+								<div class="mt-6 grid">
+									<span class={`text-lg md:text-xl font-bold ${titleColor}`}>Ideal para: </span>
+									<span class={`text-lg md:text-xl ${textColor}`}>{sector.footerDescription}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			);
+		})
+	}
+</section>

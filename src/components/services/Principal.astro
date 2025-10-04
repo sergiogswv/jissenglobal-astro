@@ -1,0 +1,31 @@
+---
+const BannerPrincipal = '/images/services/banner_ourservices.webp';
+const LogoPrincipal = '/images/logo/logotipo_blanco.png';
+const IconPrincipal = '/icons/Mesa de trabajo 23.png';
+const TitleImage = '/images/services/title.webp';
+---
+
+<section class="relative w-full h-[calc(100vh-10rem)] md:h-[calc(100vh-10rem)] mx-auto overflow-hidden mb-3.5 md:mb-0">
+	<a href="/">
+		<img
+			src={LogoPrincipal}
+			alt="Logo empresa en blanco"
+			class="absolute inset-0 w-2/12 md:w-2/8 left-10 mt-6 object-cover transition-opacity duration-1000 opacity-100 z-10"
+		/>
+	</a>
+	<div class="flex w-full relative">
+		<img
+			src={BannerPrincipal}
+			alt={'Imagen de banner principal para seccion de servicios'}
+			class="w-full h-[calc(100vh-10rem)] object-cover md:h-[calc(100vh-10rem)]"
+		/>
+
+		<div class="absolute inset-0">
+			<img
+				src={TitleImage}
+				alt="Nuestros Servicios"
+				class="w-2/4 sm:w-2/5 md:w-2/5 absolute z-30 right-4 md:right-4 bottom-4 sm:bottom-10 md:bottom-16"
+			/>
+		</div>
+	</div>
+</section>

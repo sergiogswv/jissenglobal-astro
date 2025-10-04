@@ -1,0 +1,53 @@
+---
+const servicesSections = [
+	{
+		icon: '/icons/plane.png',
+		title: 'Aéreo',
+	},
+	{
+		icon: '/icons/ship.png',
+		title: 'Marítimo',
+	},
+	{
+		icon: '/icons/bus.png',
+		title: 'Terrestre',
+	},
+	{
+		icon: '/icons/project.png',
+		title: 'Carga Proyecto',
+	},
+];
+---
+
+<section class="py-6 bg-gray-50">
+	<div class="max-w-full mx-auto">
+		<p class="text-2xl md:text-4xl w-9/12 mx-auto text-center mb-12">
+			En <span class="font-bold color-secondary">Jissen Global</span>, entendemos que cada carga es única. Por eso, ofrecemos una amplia gama de soluciones diseñadas para optimizar tu cadena de suministro, reducir costos y garantizar entregas puntuales.
+		</p>
+		<div
+			class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-12 w-10/12 mx-auto"
+		>
+			{
+				servicesSections.map((service) => (
+					<div
+						class={`
+              group relative p-2 md:p-8 rounded-2xl
+              transform transition-all duration-300 
+            `}
+					>
+						<img
+							src={service.icon}
+							alt={`Icono de ${service.title}`}
+							class="w-full h-4/12 md:h-8/12 object-contain mt-4"
+						/>
+						<div class="relative z-10">
+							<h3 class="text-2xl md:text-4xl text-center font-bold mt-1 md:mt-4">
+								{service.title}
+							</h3>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
