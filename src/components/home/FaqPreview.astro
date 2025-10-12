@@ -1,44 +1,26 @@
 ---
+const alacatLogo = "/images/logo/alacat_logo.png";
+const amacargaLogo = "/images/logo/amacarga_logo.webp";
 ---
 
-<section class="bg-gray-50 py-16 md:py-20">
-	<div class="max-w-5xl mx-auto px-4">
-		<div class="text-center mb-12 md:mb-16">
-			<h2 class="text-3xl md:text-5xl font-bold color-primary mb-4">
-				Preguntas Frecuentes
-			</h2>
-			<p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-				Resolvemos las dudas más comunes sobre nuestros servicios logísticos
-			</p>
-		</div>
-
-		<div class="grid md:grid-cols-2 gap-6 md:gap-8 mb-10 md:mb-12">
-			<div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
-				<h3 class="text-xl md:text-2xl font-bold color-primary mb-3">
-					¿Cuáles son los tiempos de entrega?
-				</h3>
-				<p class="text-gray-700 leading-relaxed">
-					Dependen del tipo de servicio y la ruta. Ofrecemos opciones Saver, Standard y Premium en transporte aéreo, así como envíos terrestres y marítimos con tiempos optimizados.
-				</p>
+<section class="bg-gray-50">
+	<div class="max-w-lg mx-auto">
+		<div class="grid md:grid-cols-2 gap-6 md:gap-12">
+			<div class="p-6 md:p-8">
+				<img
+					src={amacargaLogo}
+					alt="Logo empresa en blanco"
+					class="w-full h-auto object-cover"
+				/>
 			</div>
 
-			<div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
-				<h3 class="text-xl md:text-2xl font-bold color-primary mb-3">
-					¿Tienen cobertura internacional?
-				</h3>
-				<p class="text-gray-700 leading-relaxed">
-					Sí, contamos con rutas comerciales estratégicas que conectan México con diversos puntos del mundo.
-				</p>
+			<div class="p-6 md:p-8">
+				<img
+					src={alacatLogo}
+					alt="Logo empresa en blanco"
+					class="w-full h-auto object-cover"
+				/>
 			</div>
-		</div>
-
-		<div class="text-center">
-			<a
-				href="/faq"
-				class="background-principal text-white font-bold text-lg md:text-xl px-8 py-3 md:px-12 md:py-4 rounded-lg hover:bg-yellow-400 hover:text-blue-900 transition-colors duration-300 shadow-lg"
-			>
-				Ver todas las preguntas frecuentes
-			</a>
 		</div>
 	</div>
 </section>

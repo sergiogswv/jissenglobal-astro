@@ -1,0 +1,202 @@
+---
+// Componente Navbar para Jissen Global
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="navbar" id="navbar">
+  <div class="navbar-container">
+    <div class="navbar-spacer"></div>
+    
+    <ul class="navbar-menu">
+      <li class="navbar-item">
+        <a
+          href={currentPath === '/' ? '#services' : '/services'}
+          class="navbar-link"
+          onclick={currentPath === '/' ? 'scrollToServices()' : undefined}
+        >
+          Nuestros servicios
+        </a>
+      </li>
+      <li class="navbar-item">
+        <a href="/faq" class="navbar-link">
+          Preguntas frecuentes
+        </a>
+      </li>
+      <li class="navbar-item">
+        <a href="/contact" class="navbar-link">
+          Hablemos
+        </a>
+      </li>
+      <!-- <li class="navbar-item">
+        <a href="/privacy" class="navbar-link">
+          Aviso de privacidad
+        </a>
+      </li> -->
+    </ul>
+
+    <div class="navbar-toggle" id="navbar-toggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Función para hacer scroll automático al componente Services en home con transición suave mejorada
+  function scrollToServices() {
+    const servicesElement = document.querySelector('#services');
+    const navbar = document.getElementById('navbar');
+    const navbarHeight = navbar ? navbar.offsetHeight : 80;
+    
+    if (servicesElement) {
+      const elementPosition = servicesElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight - 20; // 20px extra padding
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  // Toggle mobile menu
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('navbar-toggle');
+    const menu = document.querySelector('.navbar-menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', function() {
+        menu.classList.toggle('active');
+        toggle.classList.toggle('active');
+      });
+    }
+  });
+</script>
+
+<style>
+  .navbar {
+    background: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .navbar-spacer {
+    flex: 1;
+    min-width: 2rem;
+  }
+
+  .navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .navbar-item {
+    margin: 0;
+  }
+
+  .navbar-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+
+  .navbar-link:hover {
+    color: #f0f0f0;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+
+  .navbar-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .navbar-container {
+      padding: 0 1rem;
+      justify-content: space-between;
+    }
+
+    .navbar-spacer {
+      display: none;
+    }
+
+    .navbar-menu {
+      position: fixed;
+      left: -100%;
+      top: 70px;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.95);
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      gap: 0;
+    }
+
+    .navbar-menu.active {
+      left: 0;
+    }
+
+    .navbar-item {
+      margin: 1rem 0;
+      padding: 0 1rem;
+    }
+
+    .navbar-toggle {
+      display: flex;
+      margin-left: 0;
+    }
+
+    .navbar-toggle.active .bar:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .navbar-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar-toggle.active .bar:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+  }
+
+  /* Scroll effect */
+  .navbar.scrolled {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+  }
+</style>

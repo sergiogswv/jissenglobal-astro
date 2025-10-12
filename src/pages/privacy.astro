@@ -1,0 +1,113 @@
+---
+// Página de Aviso de Privacidad para Jissen Global
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Aviso de Privacidad - Jissen Global"
+	description="Conoce nuestro aviso de privacidad y cómo protegemos tus datos personales en Jissen Global."
+>
+	<div class="max-w-4xl mx-auto px-6 py-12">
+		<h1 class="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-800">
+			Aviso de Privacidad
+		</h1>
+
+		<div class="prose prose-lg max-w-none">
+			<section class="mb-8">
+				<h2 class="text-2xl font-bold mb-4 text-gray-700">1. Responsable del Tratamiento de Datos</h2>
+				<p class="text-gray-600 leading-relaxed">
+					Jissen Global, con domicilio en México, es responsable del tratamiento de sus datos personales,
+					conforme a lo establecido en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.
+				</p>
+			</section>
+
+			<section class="mb-8">
+				<h2 class="text-2xl font-bold mb-4 text-gray-700">2. Datos Personales que Recopilamos</h2>
+				<p class="text-gray-600 leading-relaxed mb-4">
+					Recopilamos los siguientes datos personales para brindarle nuestros servicios de logística y transporte:
+				</p>
+				<ul class="list-disc pl-6 text-gray-600">
+					<li>Nombre completo</li>
+					<li>Dirección de correo electrónico</li>
+					<li>Número telefónico</li>
+					<li>Información de empresa o negocio</li>
+					<li>Datos de facturación</li>
+				</ul>
+			</section>
+
+			<section class="mb-8">
+				<h2 class="text-2xl font-bold mb-4 text-gray-700">3. Finalidades del Tratamiento</h2>
+				<p class="text-gray-600 leading-relaxed mb-4">
+					Utilizamos sus datos personales para:
+				</p>
+				<ul class="list-disc pl-6 text-gray-600">
+					<li>Proporcionar servicios de logística y transporte</li>
+					<li>Procesar cotizaciones y pedidos</li>
+					<li>Facturación y cobro de servicios</li>
+					<li>Comunicación sobre el estado de envíos</li>
+					<li>Mejorar nuestros servicios</li>
+					<li>Cumplir con obligaciones legales</li>
+				</ul>
+			</section>
+
+			<section class="mb-8">
+				<h2 class="text-2xl font-bold mb-4 text-gray-700">4. Medidas de Seguridad</h2>
+				<p class="text-gray-600 leading-relaxed">
+					Implementamos medidas de seguridad técnicas, administrativas y físicas para proteger sus datos personales
+					contra daño, pérdida, alteración, destrucción o uso no autorizado.
+				</p>
+			</section>
+
+			<section class="mb-8">
+				<h2 class="text-2xl font-bold mb-4 text-gray-700">5. Derechos ARCO</h2>
+				<p class="text-gray-600 leading-relaxed mb-4">
+					Usted tiene derecho a:
+				</p>
+				<ul class="list-disc pl-6 text-gray-600">
+					<li><strong>Acceso:</strong> Conocer qué datos personales tenemos de usted</li>
+					<li><strong>Rectificación:</strong> Solicitar la corrección de datos inexactos</li>
+					<li><strong>Cancelación:</strong> Pedir la eliminación de sus datos</li>
+					<li><strong>Oposición:</strong> Oponerse al tratamiento de sus datos</li>
+				</ul>
+			</section>
+
+			<section class="mb-8">
+				<h2 class="text-2xl font-bold mb-4 text-gray-700">6. Contacto</h2>
+				<p class="text-gray-600 leading-relaxed">
+					Para ejercer sus derechos ARCO o para cualquier duda sobre este aviso de privacidad,
+					puede contactarnos a través de nuestro formulario de contacto o directamente en nuestras oficinas.
+				</p>
+			</section>
+
+			<section>
+				<h2 class="text-2xl font-bold mb-4 text-gray-700">7. Cambios al Aviso de Privacidad</h2>
+				<p class="text-gray-600 leading-relaxed">
+					Nos reservamos el derecho de modificar este aviso de privacidad en cualquier momento.
+					Los cambios serán publicados en nuestro sitio web.
+				</p>
+			</section>
+		</div>
+
+		<div class="mt-12 text-center">
+			<p class="text-sm text-gray-500">
+				Última actualización: {new Date().toLocaleDateString('es-MX')}
+			</p>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.prose h2 {
+		color: #1f2937;
+		border-bottom: 2px solid #e5e7eb;
+		padding-bottom: 0.5rem;
+	}
+
+	.prose ul {
+		margin: 1rem 0;
+	}
+
+	.prose li {
+		margin-bottom: 0.5rem;
+	}
+</style>
