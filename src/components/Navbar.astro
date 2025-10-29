@@ -60,29 +60,52 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  // Toggle mobile menu
+  // Toggle mobile menu and handle scroll effect
   document.addEventListener('DOMContentLoaded', function() {
     const toggle = document.getElementById('navbar-toggle');
     const menu = document.querySelector('.navbar-menu');
-
+    const navbar = document.getElementById('navbar');
+    
+    // Handle mobile menu toggle
     if (toggle && menu) {
       toggle.addEventListener('click', function() {
         menu.classList.toggle('active');
         toggle.classList.toggle('active');
       });
     }
+    
+    // Handle scroll effect
+    if (navbar) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+      
+      // Set initial state
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      }
+    }
   });
 </script>
 
 <style>
   .navbar {
-    background: rgba(0, 0, 0, 0.85);
+    background: transparent;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     transition: all 0.3s ease;
+  }
+
+  .navbar.scrolled {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 1rem 0;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
@@ -90,15 +113,22 @@ const currentPath = Astro.url.pathname;
   .navbar-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 3rem;
+    padding: 0 1.5rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 
   .navbar-spacer {
-    flex: 1;
-    min-width: 2rem;
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .navbar-spacer {
+      display: block;
+      flex: 1;
+    }
   }
 
   .navbar-menu {
@@ -130,10 +160,14 @@ const currentPath = Astro.url.pathname;
   }
 
   .navbar-toggle {
-    display: none;
+    display: none; /* Oculto por defecto */
     flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
     cursor: pointer;
-    margin-left: 1rem;
+    z-index: 1001;
+    order: 2;
   }
 
   .navbar-toggle .bar {
@@ -147,14 +181,14 @@ const currentPath = Astro.url.pathname;
   /* Responsive */
   @media (max-width: 768px) {
     .navbar-container {
-      padding: 0 1rem;
-      justify-content: space-between;
+      padding: 0 1.5rem;
+      justify-content: flex-end;
     }
-
-    .navbar-spacer {
-      display: none;
+    
+    .navbar-toggle {
+      display: flex; /* Mostrar solo en móviles */
     }
-
+    
     .navbar-menu {
       position: fixed;
       left: -100%;
