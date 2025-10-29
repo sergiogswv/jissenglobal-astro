@@ -1,91 +1,145 @@
 ---
 // Página de Aviso de Privacidad para Jissen Global
 import Layout from '../layouts/Layout.astro';
+
+const BannerPrincipal = '/images/banner_privacy.webp';
+const LogoPrincipal = '/images/logo/logotipo_blanco.png';
+const TitleImage = '/titles/title_privacy.webp';
 ---
 
 <Layout
 	title="Aviso de Privacidad - Jissen Global"
 	description="Conoce nuestro aviso de privacidad y cómo protegemos tus datos personales en Jissen Global."
 >
+	<section class="relative w-full h-[50vh] md:h-[60vh] mx-auto overflow-hidden">
+		<a href="/">
+			<img
+				src={LogoPrincipal}
+				alt="Logo empresa en blanco"
+				class="absolute inset-0 w-2/12 md:w-1/12 left-10 mt-6 object-cover transition-opacity duration-1000 opacity-100 z-10"
+			/>
+		</a>
+		<div class="flex w-full relative">
+			<img
+				src={BannerPrincipal}
+				alt={'Banner de Aviso de Privacidad'}
+				class="w-full h-[50vh] object-cover md:h-[60vh]"
+			/>
+
+			<div class="absolute inset-0 flex items-center justify-center">
+				<img
+					src={TitleImage}
+					alt="Aviso de Privacidad"
+					class="w-3/4 sm:w-1/2 md:w-2/5 z-30"
+				/>
+			</div>
+		</div>
+	</section>
+
 	<div class="max-w-4xl mx-auto px-6 py-12">
-		<h1 class="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-800">
-			Aviso de Privacidad
-		</h1>
 
 		<div class="prose prose-lg max-w-none">
-			<section class="mb-8">
-				<h2 class="text-2xl font-bold mb-4 text-gray-700">1. Responsable del Tratamiento de Datos</h2>
-				<p class="text-gray-600 leading-relaxed">
-					Jissen Global, con domicilio en México, es responsable del tratamiento de sus datos personales,
-					conforme a lo establecido en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.
-				</p>
-			</section>
+      <p class="text-gray-600 leading-relaxed mb-8">
+        Jissen Global S.A. de C.V. (en lo sucesivo, "Jissen Global"), con domicilio en Emperadores 210, int 4. Col. Portales Norte, CDMX 03303, en cumplimiento con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares y su Reglamento, pone a disposición de los usuarios, clientes, proveedores y público en general el presente Aviso de Privacidad.
+      </p>
 
-			<section class="mb-8">
-				<h2 class="text-2xl font-bold mb-4 text-gray-700">2. Datos Personales que Recopilamos</h2>
-				<p class="text-gray-600 leading-relaxed mb-4">
-					Recopilamos los siguientes datos personales para brindarle nuestros servicios de logística y transporte:
-				</p>
-				<ul class="list-disc pl-6 text-gray-600">
-					<li>Nombre completo</li>
-					<li>Dirección de correo electrónico</li>
-					<li>Número telefónico</li>
-					<li>Información de empresa o negocio</li>
-					<li>Datos de facturación</li>
-				</ul>
-			</section>
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4 text-gray-700">1. Datos personales que recabamos</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Jissen Global podrá recabar de manera directa, indirecta o a través de medios electrónicos los siguientes datos:
+        </p>
+        <ul class="list-disc pl-6 text-gray-600">
+          <li><strong>Datos de identificación:</strong> nombre completo, domicilio, correo electrónico, número telefónico, RFC, CURP.</li>
+          <li><strong>Datos laborales:</strong> puesto, empresa, área de trabajo.</li>
+          <li><strong>Datos financieros o de facturación:</strong> razón social, datos bancarios, domicilio fiscal.</li>
+          <li><strong>Datos de navegación:</strong> dirección IP, cookies, historial de uso del sitio web.</li>
+        </ul>
+      </section>
 
-			<section class="mb-8">
-				<h2 class="text-2xl font-bold mb-4 text-gray-700">3. Finalidades del Tratamiento</h2>
-				<p class="text-gray-600 leading-relaxed mb-4">
-					Utilizamos sus datos personales para:
-				</p>
-				<ul class="list-disc pl-6 text-gray-600">
-					<li>Proporcionar servicios de logística y transporte</li>
-					<li>Procesar cotizaciones y pedidos</li>
-					<li>Facturación y cobro de servicios</li>
-					<li>Comunicación sobre el estado de envíos</li>
-					<li>Mejorar nuestros servicios</li>
-					<li>Cumplir con obligaciones legales</li>
-				</ul>
-			</section>
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4 text-gray-700">2. Finalidades del tratamiento de los datos</h2>
+        <p class="text-gray-600 leading-relaxed mb-2">
+          Los datos personales recabados serán utilizados para las siguientes finalidades:
+        </p>
+        
+        <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-700">Finalidades primarias (necesarias):</h3>
+        <ul class="list-disc pl-6 text-gray-600 mb-4">
+          <li>Proveer los servicios y productos contratados.</li>
+          <li>Elaborar cotizaciones, facturación y contratos.</li>
+          <li>Dar seguimiento a solicitudes de información.</li>
+          <li>Cumplir con obligaciones legales y fiscales.</li>
+        </ul>
+        
+        <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-700">Finalidades secundarias (opcionales):</h3>
+        <ul class="list-disc pl-6 text-gray-600 mb-4">
+          <li>Enviar información sobre servicios, promociones, eventos o campañas de Jissen Global.</li>
+          <li>Realizar encuestas de satisfacción.</li>
+          <li>Análisis estadísticos y de mercado.</li>
+        </ul>
+        
+        <p class="text-gray-600 leading-relaxed">
+          En caso de que no desee que sus datos sean utilizados para finalidades secundarias, puede manifestarlo enviando un correo a: 
+          <a href="mailto:facturacion@jissenglobal.com" class="text-blue-600 hover:underline">facturacion@jissenglobal.com</a>
+        </p>
+      </section>
 
-			<section class="mb-8">
-				<h2 class="text-2xl font-bold mb-4 text-gray-700">4. Medidas de Seguridad</h2>
-				<p class="text-gray-600 leading-relaxed">
-					Implementamos medidas de seguridad técnicas, administrativas y físicas para proteger sus datos personales
-					contra daño, pérdida, alteración, destrucción o uso no autorizado.
-				</p>
-			</section>
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4 text-gray-700">3. Transferencia de datos</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Jissen Global no compartirá sus datos personales con terceros sin su consentimiento, salvo en los casos previstos por la ley o cuando sea necesario para cumplir con obligaciones legales o contractuales (por ejemplo, con autoridades fiscales o proveedores de servicios relacionados).
+        </p>
+      </section>
 
-			<section class="mb-8">
-				<h2 class="text-2xl font-bold mb-4 text-gray-700">5. Derechos ARCO</h2>
-				<p class="text-gray-600 leading-relaxed mb-4">
-					Usted tiene derecho a:
-				</p>
-				<ul class="list-disc pl-6 text-gray-600">
-					<li><strong>Acceso:</strong> Conocer qué datos personales tenemos de usted</li>
-					<li><strong>Rectificación:</strong> Solicitar la corrección de datos inexactos</li>
-					<li><strong>Cancelación:</strong> Pedir la eliminación de sus datos</li>
-					<li><strong>Oposición:</strong> Oponerse al tratamiento de sus datos</li>
-				</ul>
-			</section>
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4 text-gray-700">4. Derechos ARCO</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          El titular de los datos personales podrá ejercer en todo momento sus derechos de Acceso, Rectificación, Cancelación y Oposición (ARCO), así como revocar el consentimiento otorgado, enviando una solicitud a través del correo electrónico: 
+          <a href="mailto:facturacion@jissenglobal.com" class="text-blue-600 hover:underline">facturacion@jissenglobal.com</a>
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          La solicitud deberá incluir:
+        </p>
+        <ol class="list-decimal pl-6 text-gray-600 mb-4 space-y-2">
+          <li>Nombre completo y medio de contacto para notificaciones.</li>
+          <li>Documentos que acrediten su identidad.</li>
+          <li>Descripción clara de los datos respecto de los cuales busca ejercer sus derechos.</li>
+        </ol>
+        <p class="text-gray-600 leading-relaxed">
+          El plazo de respuesta será de 20 días hábiles conforme a la legislación aplicable.
+        </p>
+      </section>
 
-			<section class="mb-8">
-				<h2 class="text-2xl font-bold mb-4 text-gray-700">6. Contacto</h2>
-				<p class="text-gray-600 leading-relaxed">
-					Para ejercer sus derechos ARCO o para cualquier duda sobre este aviso de privacidad,
-					puede contactarnos a través de nuestro formulario de contacto o directamente en nuestras oficinas.
-				</p>
-			</section>
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4 text-gray-700">5. Uso de cookies y tecnologías similares</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Nuestro sitio web utiliza cookies y otras tecnologías de seguimiento para mejorar la experiencia del usuario, analizar tráfico y personalizar contenido. Usted puede deshabilitar el uso de cookies desde la configuración de su navegador, aunque algunas funciones del sitio pueden verse limitadas.
+        </p>
+      </section>
 
-			<section>
-				<h2 class="text-2xl font-bold mb-4 text-gray-700">7. Cambios al Aviso de Privacidad</h2>
-				<p class="text-gray-600 leading-relaxed">
-					Nos reservamos el derecho de modificar este aviso de privacidad en cualquier momento.
-					Los cambios serán publicados en nuestro sitio web.
-				</p>
-			</section>
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4 text-gray-700">6. Seguridad de la información</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Jissen Global implementa medidas de seguridad administrativas, técnicas y físicas necesarias para proteger sus datos contra daño, pérdida, alteración, destrucción o uso no autorizado.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4 text-gray-700">7. Cambios al aviso de privacidad</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Jissen Global se reserva el derecho de modificar o actualizar este Aviso de Privacidad en cualquier momento, atendiendo cambios legislativos o necesidades internas. Las modificaciones estarán disponibles en el sitio web <a href="https://www.jissenglobal.com/" class="text-blue-600 hover:underline">https://www.jissenglobal.com/</a>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold mb-4 text-gray-700">8. Contacto</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Para cualquier duda respecto al presente Aviso de Privacidad, puede comunicarse a:
+        </p>
+        <ul class="list-disc pl-6 text-gray-600 mt-2">
+          <li>Correo electrónico: <a href="mailto:facturacion@jissenglobal.com" class="text-blue-600 hover:underline">facturacion@jissenglobal.com</a></li>
+          <li>Teléfono: <a href="tel:525558338400" class="text-blue-600 hover:underline">55 5833 8400</a></li>
+        </ul>
+      </section>
 		</div>
 
 		<div class="mt-12 text-center">
